@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --gradient-top: linear-gradient(0deg, rgba(22, 24, 19, 0) 0%, rgba(22, 24, 19, 0.22) 36.98%, rgba(22, 24, 19, 0.47) 70.83%, rgba(22, 24, 19, 0.76) 100%);
+    --gradient-bottom: linear-gradient(180deg, rgba(22, 24, 19, 0) 0%, rgba(22, 24, 19, 0.42) 21.88%, rgba(22, 24, 19, 0.69) 41.67%, rgba(22, 24, 19, 0.9) 61.98%, rgba(22, 24, 19, 0.99) 78.12%, #161813 100%);
+    --sphere-gradient-one: radial-gradient(50% 50% at 20% 25%, #686868 0%, #403F3F 35%, #222222 70%, #000000 100%);
+    --sphere-gradient-two: radial-gradient(51.04% 51.04% at 18.94% 26.18%, #686868 0%, #403F3F 36.98%, #222222 70.83%, #000000 100%);
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'poppins' sans-serif;
+    background: #0E1F91;
+    overflow-x: hidden;
+}
+p{
+    font-family: 'poppins';
+}
+.moving-icon{
+    animation: animate 3s linear infinite;
+}
+.moving-icon-right{
+    animation: animate 3s linear infinite;
+    right:10px;
+    position: absolute;
+}
+
+@keyframes animate{
+    0%{
+        transform: translate(-11px, 0);
+    }
+    50%{
+        transform: translate(-0px, -11px);
+    }
+    100%{
+        transform: translate(-11px, 0);
+    }
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100px;
+    padding: 20px 30px;
+    transition: .5s;
+}
+
+.navbar.bg{
+    background: #083FDC;
+}
+
+.links-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.logo{
+    height: 40px;
+    margin-top: 10px;
+    border: 5px solid #083FDC;
+    border-radius: 50%;
+    padding: 3px;
+}
+.link-item{
+    margin: 0 30px;
+    transition: .5s;
+}
+.link-item a{
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+    font-family: 'poppins';
+}
+
+/*HERO SECTION*/
+
+.hero-section{
+    width:100%;
+    height:100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:#fff;
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+.background-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.background::before, .background::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.background::before{
+    top: 0;
+    left: 0;
+    background: var(--gradient-top);
+}
+.background::after{
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-bottom);
+}
+
+.slider-grid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+.grid-item{
+    width: 100%;
+    height: 100%;
+    background: #161813;
+    opacity: 1;
+    transition: .5s;
+    pointer-events: none;
+}
+.grid-item.hide{
+    opacity: 0;
+}
+
+.hero-section-title{
+    font-family: 'robot slab' serif;
+    font-weight: 300;
+    font-size: 80px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.hero-section-sub-heading{
+    text-align: center;
+    text-transform: capitalize;
+    margin: 20px 0;
+    font-size: 20px;
+}
+.explore-btn{
+    background: #fff;
+    color: #000;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-family: 'poppins';
+    font-weight: 600;
+}
+.explore-btn:hover{
+    background-color: #0E1F91;
+    color: #fff;
+    cursor: pointer;
+}
+.scroll-down-icon{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    animation: down ease 1s infinite;
+}
+@keyframes down{
+    from{ bottom: 10%; }
+    to{ bottom: 8%; }
+}
+
+/*Trending Auction Cards*/
+.trending-conatiner{
+    /* max-width: 1400px; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #03115C;
+    padding-bottom: 100px;
+  }
+  .trending{
+    padding-top: 100px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+  }
+  .trending-title{
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    color: #fff;
+  }
+  .swiper-container {
+      width: 100%;
+      height: 100%;
+  }
+  .swiper-slide {
+      font-size: 18px;      
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+  }
+  .aution-card{
+    width: 18rem;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 255, 0.747) 0px 7px 29px 0px;
+  }
+  .aution-img{
+    height: 200px;
+    width: 100%;
+  }
+  .user-profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .username{
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-transform: capitalize;
+    color: #686868;
+  }
+
+  .aution-title{
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-transform: capitalize;
+  }
+  .bid-title-left{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-transform: capitalize;
+    color: #686868;
+
+  }
+  .bid-title-right{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-transform: capitalize;
+    color: #686868;
+    right: 12px;
+    position: absolute;
+    bottom: 37px;
+  }
+
+
+  /*Featured Collections*/
+.featured{
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+.featured-title{
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    color: #fff;
+    padding-left: 65px;
+}
+  
+.tours-container{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.tour-card:nth-child(2){
+    grid-row: span 2;
+}
+.tour-card:last-child{
+    grid-column: span 2;
+}
+.tour-card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    pad: 10px;
+    display: flex;
+    align-items: end;
+}
+.tour-img{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+    z-index: -1;
+}
+.tour-card:hover .tour-img{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+.tour-name{
+    margin-left:20px;
+    font-weight: 300;
+    color: #fff;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 26px;
+    
+}
+.tour-action{
+    margin-left:30px;
+    font-size: 14px;
+    position: relative;
+    color: #fff;
+}
+.tour-action::before{
+    content: '';
+    position: absolute;
+    left: 120px;
+    top: 0px;
+    background: url('img/right-arrow.png');
+    width: 25px;
+    height: 45px;
+    background-size: contain;
+}
